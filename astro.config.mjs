@@ -13,4 +13,13 @@ export default defineConfig({
       weights: ["400 500 700"],
     },
   ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "/src/styles/_variables.scss" as *;`,
+        },
+      },
+    },
+  },
 });
