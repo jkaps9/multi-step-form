@@ -72,3 +72,37 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+/*~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~>
+<~~         Utilities          ~~>
+<~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~ ~*/
+
+.btn {
+  @include textpreset3medium;
+  border: none;
+  border-radius: 8px;
+  color: $colors-grey-500;
+  cursor: pointer;
+  display: inline-flex;
+  padding: $spacing-xs $spacing-sm;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    color: $colors-blue-950;
+  }
+  &--primary {
+    background-color: $colors-blue-950;
+    color: $colors-white;
+    &:hover {
+      background-color: $colors-blue-700;
+    }
+  }
+  &--secondary {
+    background-color: $colors-purple-600;
+    color: $colors-white;
+    &:hover {
+      background-color: $colors-purple-400;
+    }
+  }
+}
