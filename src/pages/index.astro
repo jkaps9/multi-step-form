@@ -14,7 +14,7 @@ import '../styles/global.scss';
 		<Font cssVariable="--font-ubuntu" preload></Font>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1 class="textpreset1">Hello</h1>
 	</body>
 </html>
 
@@ -22,4 +22,33 @@ import '../styles/global.scss';
 	body {
 		font-family: var(--font-ubuntu);
 	}
+
+	.textpreset1 {
+		@include textpreset1;
+	}
+
+	.textpreset2 {
+		@include textpreset2;
+	}
+
+	.textpreset3 {
+		@include textpreset3;
+	}
+
+	.textpreset4 {
+		@include textpreset4;
+	}
+
+	.textpreset4meidum {
+		@include textpreset4medium;
+	}
+
+	.textpreset4regular {
+		@include textpreset4regular;
+	}
+
+	.textpreset5 {
+		@include textpreset5;
+	}
+
 </style>

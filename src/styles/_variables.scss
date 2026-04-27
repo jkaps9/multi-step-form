@@ -1,49 +1,41 @@
-@mixin TextPreset1 {
-  font-size: 32px;
-  font-family: Ubuntu, sans-serif;
+@mixin textpreset1 {
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
 }
-@mixin TextPreset2 {
-  font-size: 24px;
-  font-family: Ubuntu, sans-serif;
+@mixin textpreset2 {
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
 }
-@mixin TextPreset3 {
-  font-size: 16px;
-  font-family: Ubuntu, sans-serif;
+@mixin textpreset3 {
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.2;
 }
-@mixin TextPreset3 {
-  font-size: 16px;
-  font-family: Ubuntu, sans-serif;
+@mixin textpreset3 {
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
 }
-@mixin TextPreset4 {
-  font-size: 14px;
-  font-family: Ubuntu, sans-serif;
+@mixin textpreset4 {
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 1px;
   line-height: 1.2;
 }
-@mixin TextPreset4medium {
-  font-size: 14px;
-  font-family: Ubuntu, sans-serif;
+@mixin textpreset4medium {
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.5;
 }
-@mixin TextPreset4regular {
-  font-size: 14px;
-  font-family: Ubuntu, sans-serif;
+@mixin textpreset4regular {
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
 }
-@mixin TextPreset5 {
-  font-size: 12px;
-  font-family: Ubuntu, sans-serif;
+@mixin textpreset5 {
+  font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.2;
 }
@@ -72,3 +64,12 @@ $colors-blue-700: #164a8a;
 $colors-blue-950: #022959;
 
 $section-margin: clamp(3.75rem, 7.82vw, 6.25rem) 0;
+
+$spacing-none: 0;
+$spacing-xxs: 0.5rem;
+$spacing-xs: 1rem;
+$spacing-sm: 1.5rem;
+$spacing-md: 2rem;
+$spacing-lg: 2.5rem;
+$spacing-xl: 3.5rem;
+$spacing-xxl: 3.5rem;
