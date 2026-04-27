@@ -1,5 +1,5 @@
 ---
-
+import { Font } from "astro:assets";
 ---
 
 <html lang="en">
@@ -10,8 +10,15 @@
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
+		<Font cssVariable="--font-ubuntu" preload></Font>
 	</head>
 	<body>
 		<h1>Astro</h1>
 	</body>
 </html>
+
+<style>
+	body {
+		font-family: var(--font-ubuntu);
+	}
+</style>

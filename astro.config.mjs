@@ -1,5 +1,16 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  fonts: [
+    {
+      cssVariable: "--font-ubuntu",
+      fallbacks: ["sans-serif"],
+      name: "Ubuntu",
+      provider: fontProviders.google(),
+      styles: ["normal"],
+      weights: ["400 500 700"],
+    },
+  ],
+});
