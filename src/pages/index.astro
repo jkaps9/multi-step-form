@@ -34,43 +34,92 @@ import "../styles/global.scss";
     <!--<button class="btn btn--primary">Next Step</button>
     <button class="btn btn--secondary">Next Step</button>
     <button class="btn">Go Back</button> -->
-    <div class="sidebar">
-      <ul class="progress-steps">
-        <li class="progress-steps__item">
-          <div class="step-number active">1</div>
-          <div class="step-info">
-            <p class="step-number-text">Step 1</p>
-            <p class="step-description">Your Info</p>
-          </div>
-        </li>
-        <li class="progress-steps__item">
-          <div class="step-number">2</div>
-          <div class="step-info">
-            <p class="step-number-text">Step 2</p>
-            <p class="step-description">Select Plan</p>
-          </div>
-        </li>
-        <li class="progress-steps__item">
-          <div class="step-number">3</div>
-          <div class="step-info">
-            <p class="step-number-text">Step 3</p>
-            <p class="step-description">Add-Ons</p>
-          </div>
-        </li>
-        <li class="progress-steps__item">
-          <div class="step-number">4</div>
-          <div class="step-info">
-            <p class="step-number-text">Step 4</p>
-            <p class="step-description">Summary</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <section>
+      <div class="sidebar">
+        <ul class="progress-steps">
+          <li class="progress-steps__item">
+            <div class="step-number active">1</div>
+            <div class="step-info">
+              <p class="step-number-text">Step 1</p>
+              <p class="step-description">Your Info</p>
+            </div>
+          </li>
+          <li class="progress-steps__item">
+            <div class="step-number">2</div>
+            <div class="step-info">
+              <p class="step-number-text">Step 2</p>
+              <p class="step-description">Select Plan</p>
+            </div>
+          </li>
+          <li class="progress-steps__item">
+            <div class="step-number">3</div>
+            <div class="step-info">
+              <p class="step-number-text">Step 3</p>
+              <p class="step-description">Add-Ons</p>
+            </div>
+          </li>
+          <li class="progress-steps__item">
+            <div class="step-number">4</div>
+            <div class="step-info">
+              <p class="step-number-text">Step 4</p>
+              <p class="step-description">Summary</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="form-container">
+        <div class="form-header">
+          <h2 class="form-header__title textpreset2">Personal info</h2>
+          <p class="form-header__text textpreset3">
+            Please provide your name, email address, and phone number.
+          </p>
+        </div>
+        <form class="multi-step-form">
+          <p class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="fullname"
+              oninput="this.setCustomValidity('')"
+              placeholder="e.g. Stephen King"
+              autocomplete="name"
+              required
+            />
+          </p>
+          <p class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              oninput="this.setCustomValidity('')"
+              placeholder="e.g. stephenking@lorem.com"
+              autocomplete="email"
+              required
+            />
+          </p>
+          <p class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              oninput="this.setCustomValidity('')"
+              placeholder="e.g. +1 234 567 890"
+              autocomplete="tel"
+              required
+            />
+          </p>
+        </form>
+      </div>
+    </section>
   </body>
 </html>
 
 <style lang="scss">
   body {
+    background-color: $colors-blue-50;
     display: flex;
     flex-direction: column;
     font-family: var(--font-ubuntu);
@@ -123,6 +172,67 @@ import "../styles/global.scss";
 
     .step-description {
       display: none;
+    }
+  }
+
+  .form-container {
+    background-color: $colors-white;
+    border-radius: 10px;
+    box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    margin: 0 $spacing-xs;
+    padding: $spacing-md $spacing-sm;
+  }
+
+  .form-header {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xxs;
+    &__text {
+      color: $colors-grey-500;
+    }
+  }
+
+  .multi-step-form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    label {
+      @include textpreset5;
+      color: $colors-blue-950;
+      display: block;
+      margin-bottom: $spacing-xxs;
+    }
+
+    input {
+      @include textpreset4medium;
+      border: 1px solid $colors-purple-200;
+      border-radius: 4px;
+      color: $colors-grey-500;
+      padding: $spacing-xxs $spacing-xs;
+
+      &::placeholder {
+        color: inherit;
+      }
+
+      &:focus-visible {
+        outline-color: $colors-purple-600;
+      }
+
+      &:hover {
+        border-color: $colors-purple-400;
+      }
+    }
+
+    .form-group:has(input:user-invalid),
+    .form-group:has(textarea:user-invalid) {
+      input,
+      textarea {
+        border-color: $colors-red-500;
+      }
     }
   }
 
