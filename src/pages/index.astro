@@ -38,28 +38,40 @@ import "../styles/global.scss";
       <div class="form-component__container">
         <div class="sidebar">
           <ul class="progress-steps">
-            <li class="progress-steps__item">
+            <li
+              class="progress-steps__item"
+              id="one"
+            >
               <div class="step-number active">1</div>
               <div class="step-info">
                 <p class="step-number-text">Step 1</p>
                 <p class="step-description">Your Info</p>
               </div>
             </li>
-            <li class="progress-steps__item">
+            <li
+              class="progress-steps__item"
+              id="two"
+            >
               <div class="step-number">2</div>
               <div class="step-info">
                 <p class="step-number-text">Step 2</p>
                 <p class="step-description">Select Plan</p>
               </div>
             </li>
-            <li class="progress-steps__item">
+            <li
+              class="progress-steps__item"
+              id="three"
+            >
               <div class="step-number">3</div>
               <div class="step-info">
                 <p class="step-number-text">Step 3</p>
                 <p class="step-description">Add-Ons</p>
               </div>
             </li>
-            <li class="progress-steps__item">
+            <li
+              class="progress-steps__item"
+              id="four"
+            >
               <div class="step-number">4</div>
               <div class="step-info">
                 <p class="step-number-text">Step 4</p>
@@ -70,10 +82,40 @@ import "../styles/global.scss";
         </div>
         <div class="form-container">
           <form class="multi-step-form">
-            <header class="form-header">
+            <header
+              class="form-header"
+              id="one"
+            >
               <h2 class="form-header__title textpreset2">Personal info</h2>
               <p class="form-header__text textpreset3">
                 Please provide your name, email address, and phone number.
+              </p>
+            </header>
+            <header
+              class="form-header hidden"
+              id="two"
+            >
+              <h2 class="form-header__title textpreset2">Select your plan</h2>
+              <p class="form-header__text textpreset3">
+                You have the option of monthly or yearly billing.
+              </p>
+            </header>
+            <header
+              class="form-header hidden"
+              id="three"
+            >
+              <h2 class="form-header__title textpreset2">Pick add-ons</h2>
+              <p class="form-header__text textpreset3">
+                Add-ons help enhance your gaming experience.
+              </p>
+            </header>
+            <header
+              class="form-header hidden"
+              id="four"
+            >
+              <h2 class="form-header__title textpreset2">Finishing up</h2>
+              <p class="form-header__text textpreset3">
+                Double-check everything looks OK before confirming.
               </p>
             </header>
             <section
@@ -136,20 +178,32 @@ import "../styles/global.scss";
               <button
                 class="btn hidden"
                 id="prevBtn"
+                type="button"
               >
                 Go Back
               </button>
               <button
                 class="btn btn--primary"
                 id="nextBtn"
+                type="button"
               >
                 Next Step
+              </button>
+              <button
+                class="btn btn--secondary hidden"
+                id="confirmBtn"
+                type="submit"
+              >
+                Confirm
               </button>
             </footer>
           </form>
         </div>
       </div>
     </section>
+    <script>
+      import "../scripts/formController.js";
+    </script>
   </body>
 </html>
 
@@ -274,6 +328,9 @@ import "../styles/global.scss";
 
     .form-footer {
       align-self: flex-end;
+      flex: 1;
+      justify-content: space-between;
+      width: stretch;
     }
   }
 
@@ -281,12 +338,10 @@ import "../styles/global.scss";
     display: flex;
     flex-direction: column;
     gap: $spacing-xs;
-
-    &.hidden {
-      display: none;
-    }
   }
 
+  .form-header.hidden,
+  .form-section.hidden,
   .btn.hidden {
     display: none;
   }
@@ -321,16 +376,15 @@ import "../styles/global.scss";
 
   @media (min-width: 0rem) and (max-width: 47.975rem) {
     .multi-step-form {
+      width: stretch;
       .form-footer {
         background-color: $colors-white;
         bottom: 0;
         box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
         display: flex;
-        justify-content: flex-end;
         padding: $spacing-xs;
         position: fixed;
         right: 0;
-        width: stretch;
       }
     }
   }

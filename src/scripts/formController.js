@@ -38,6 +38,7 @@ function changeSections() {
     nextButton.classList.add("hidden");
   } else {
     confirmButton.classList.add("hidden");
+    nextButton.classList.remove("hidden");
   }
 
   addClassToListExceptOne(
@@ -62,5 +63,10 @@ function changeSections() {
 nextButton.addEventListener("click", () => {
   // TODO: check form validation first
   currentStep++;
+  changeSections();
+});
+
+prevButton.addEventListener("click", () => {
+  currentStep--;
   changeSections();
 });
