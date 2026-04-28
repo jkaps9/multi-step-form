@@ -36,7 +36,36 @@ import "../styles/global.scss";
     <button class="btn btn--secondary">Next Step</button>
     <button class="btn">Go Back</button>
     <div class="sidebar">
-      <div class="bg-wrapper"></div>
+      <ul class="progress-steps">
+        <li class="progress-steps__item">
+          <div class="step-number">1</div>
+          <div class="step-info">
+            <p class="step-number-text">Step 1</p>
+            <p class="step-description">Your Info</p>
+          </div>
+        </li>
+        <li class="progress-steps__item">
+          <div class="step-number">2</div>
+          <div class="step-info">
+            <p class="step-number-text">Step 2</p>
+            <p class="step-description">Select Plan</p>
+          </div>
+        </li>
+        <li class="progress-steps__item">
+          <div class="step-number">3</div>
+          <div class="step-info">
+            <p class="step-number-text">Step 3</p>
+            <p class="step-description">Add-Ons</p>
+          </div>
+        </li>
+        <li class="progress-steps__item">
+          <div class="step-number">4</div>
+          <div class="step-info">
+            <p class="step-number-text">Step 4</p>
+            <p class="step-description">Summary</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </body>
 </html>
@@ -48,24 +77,41 @@ import "../styles/global.scss";
 
   .sidebar {
     align-items: flex-start;
-    background-color: $colors-purple-600;
-    box-sizing: content-box;
+    background-image: url("/src/assets/images/bg-sidebar-mobile.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: $colors-white;
     display: flex;
-    flex-shrink: 0;
-    min-height: 568px;
-    min-width: 50vw;
-    padding: $spacing-lg $spacing-md;
-    position: relative;
-    z-index: -1;
-    .bg-wrapper {
-      background-image: url("/src/assets/images/bg-sidebar-mobile.svg");
-      background-position: center bottom;
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      z-index: 1;
+    width: 100vw;
+
+    .progress-steps {
+      list-style-type: none;
+    }
+
+    .step-number {
+      align-items: center;
+      border: 1px solid $colors-white;
+      border-radius: 100vh;
+      display: flex;
+      height: 2rem;
+      justify-content: center;
+      width: 2rem;
+    }
+
+    .step-number,
+    .step-description {
+      @include textpreset4;
+    }
+
+    .step-number-text {
+      @include textpreset5;
+      color: $colors-blue-300;
+      display: none;
+    }
+
+    .step-description {
+      display: none;
     }
   }
 
@@ -95,5 +141,56 @@ import "../styles/global.scss";
 
   .textpreset5 {
     @include textpreset5;
+  }
+
+  @media (min-width: 48rem) {
+    .sidebar {
+      align-items: flex-start;
+      background-image: url("/src/assets/images/bg-sidebar-desktop.svg");
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 1rem;
+      box-sizing: content-box;
+      display: flex;
+      flex-shrink: 0;
+      min-height: 568px;
+      padding: $spacing-lg $spacing-md;
+
+      .progress-steps {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+        list-style-type: none;
+        padding: 0;
+        text-transform: uppercase;
+
+        &__item {
+          align-items: center;
+          display: flex;
+          gap: $spacing-xs;
+        }
+      }
+
+      .step-number {
+        align-items: center;
+        border: 1px solid $colors-white;
+        border-radius: 100vh;
+        display: flex;
+        height: 2rem;
+        justify-content: center;
+        width: 2rem;
+      }
+
+      .step-number,
+      .step-description {
+        @include textpreset4;
+      }
+
+      .step-number-text {
+        @include textpreset5;
+        color: $colors-blue-300;
+      }
+    }
   }
 </style>
