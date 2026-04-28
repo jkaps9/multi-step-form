@@ -31,7 +31,7 @@ import "../styles/global.scss";
     />
   </head>
   <body>
-    <!--<button class="btn btn--primary">Next Step</button>
+    <!--
     <button class="btn btn--secondary">Next Step</button>
     <button class="btn">Go Back</button> -->
     <section>
@@ -111,6 +111,9 @@ import "../styles/global.scss";
               required
             />
           </p>
+          <footer class="form-footer">
+            <button class="btn btn--primary">Next Step</button>
+          </footer>
         </form>
       </div>
     </section>
@@ -182,7 +185,7 @@ import "../styles/global.scss";
     display: flex;
     flex-direction: column;
     gap: $spacing-sm;
-    margin: 0 $spacing-xs;
+    margin: -75px $spacing-xs 0;
     padding: $spacing-md $spacing-sm;
   }
 
@@ -213,6 +216,7 @@ import "../styles/global.scss";
       border-radius: 4px;
       color: $colors-grey-500;
       padding: $spacing-xxs $spacing-xs;
+      width: stretch;
 
       &::placeholder {
         color: inherit;
@@ -233,6 +237,18 @@ import "../styles/global.scss";
       textarea {
         border-color: $colors-red-500;
       }
+    }
+
+    .form-footer {
+      background-color: $colors-white;
+      bottom: 0;
+      box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: flex-end;
+      padding: $spacing-xs;
+      position: fixed;
+      right: 0;
+      width: stretch;
     }
   }
 
