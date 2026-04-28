@@ -301,7 +301,6 @@ import "../styles/global.scss";
     .form-section {
       justify-content: center;
       display: flex;
-      width: stretch;
       &__container {
         background-color: $colors-white;
         border-radius: 16px;
@@ -313,6 +312,7 @@ import "../styles/global.scss";
     }
 
     .form-container {
+      background-color: transparent;
       gap: $spacing-md;
       margin: 0;
       box-shadow: none;
@@ -334,6 +334,7 @@ import "../styles/global.scss";
 
       input {
         @include textpreset3medium;
+        min-height: 3rem;
       }
 
       .form-footer {
@@ -351,11 +352,9 @@ import "../styles/global.scss";
       background-size: cover;
       border-radius: 1rem;
       display: flex;
-      flex-shrink: 0;
-      max-width: clamp(12.875rem, 8.0179rem + 10.119vw, 17.125rem);
+      min-width: clamp(12.875rem, 8.0179rem + 10.119vw, 17.125rem);
       min-height: 568px;
       padding: $spacing-lg clamp($spacing-sm, 0.8571rem + 2.381vw, $spacing-lg);
-      width: 100%;
 
       .progress-steps {
         display: flex;
@@ -383,9 +382,17 @@ import "../styles/global.scss";
   }
 
   @media (min-width: 64rem) {
+    .form-section {
+      width: stretch;
+      &__container {
+        max-width: 940px;
+        width: stretch;
+      }
+    }
     .form-header {
       &__text {
-        max-width: 50ch;
+        max-width: 65ch;
+        text-wrap: nowrap;
       }
     }
   }
