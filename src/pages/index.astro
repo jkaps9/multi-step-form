@@ -240,15 +240,7 @@ import "../styles/global.scss";
     }
 
     .form-footer {
-      background-color: $colors-white;
-      bottom: 0;
-      box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: flex-end;
-      padding: $spacing-xs;
-      position: fixed;
-      right: 0;
-      width: stretch;
+      align-self: flex-end;
     }
   }
 
@@ -278,6 +270,22 @@ import "../styles/global.scss";
 
   .textpreset5 {
     @include textpreset5;
+  }
+
+  @media (min-width: 0rem) and (max-width: 47.975rem) {
+    .multi-step-form {
+      .form-footer {
+        background-color: $colors-white;
+        bottom: 0;
+        box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: flex-end;
+        padding: $spacing-xs;
+        position: fixed;
+        right: 0;
+        width: stretch;
+      }
+    }
   }
 
   @media (min-width: 48rem) {
