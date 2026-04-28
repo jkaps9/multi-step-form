@@ -76,42 +76,44 @@ import "../styles/global.scss";
             </p>
           </div>
           <form class="multi-step-form">
-            <p class="form-group">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="fullname"
-                oninput="this.setCustomValidity('')"
-                placeholder="e.g. Stephen King"
-                autocomplete="name"
-                required
-              />
-            </p>
-            <p class="form-group">
-              <label for="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                oninput="this.setCustomValidity('')"
-                placeholder="e.g. stephenking@lorem.com"
-                autocomplete="email"
-                required
-              />
-            </p>
-            <p class="form-group">
-              <label for="phone">Phone Number</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                oninput="this.setCustomValidity('')"
-                placeholder="e.g. +1 234 567 890"
-                autocomplete="tel"
-                required
-              />
-            </p>
+            <section>
+              <p class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="fullname"
+                  oninput="this.setCustomValidity('')"
+                  placeholder="e.g. Stephen King"
+                  autocomplete="name"
+                  required
+                />
+              </p>
+              <p class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  oninput="this.setCustomValidity('')"
+                  placeholder="e.g. stephenking@lorem.com"
+                  autocomplete="email"
+                  required
+                />
+              </p>
+              <p class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  oninput="this.setCustomValidity('')"
+                  placeholder="e.g. +1 234 567 890"
+                  autocomplete="tel"
+                  required
+                />
+              </p>
+            </section>
             <footer class="form-footer">
               <button class="btn btn--primary">Next Step</button>
             </footer>
@@ -204,9 +206,11 @@ import "../styles/global.scss";
   }
 
   .multi-step-form {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-xs;
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
+    }
 
     label {
       @include textpreset5;
@@ -325,11 +329,15 @@ import "../styles/global.scss";
     }
 
     .multi-step-form {
-      gap: $spacing-sm;
+      display: flex;
+      flex-direction: column;
       height: stretch;
+      section {
+        gap: $spacing-sm;
+      }
 
       label {
-        @include textpreset4;
+        @include textpreset4regular;
       }
 
       input {
