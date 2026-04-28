@@ -31,10 +31,9 @@ import "../styles/global.scss";
     />
   </head>
   <body>
-    <h1 class="textpreset1">Hello</h1>
-    <button class="btn btn--primary">Next Step</button>
+    <!--<button class="btn btn--primary">Next Step</button>
     <button class="btn btn--secondary">Next Step</button>
-    <button class="btn">Go Back</button>
+    <button class="btn">Go Back</button> -->
     <div class="sidebar">
       <ul class="progress-steps">
         <li class="progress-steps__item">
@@ -72,21 +71,27 @@ import "../styles/global.scss";
 
 <style lang="scss">
   body {
+    display: flex;
+    flex-direction: column;
     font-family: var(--font-ubuntu);
   }
 
   .sidebar {
-    align-items: flex-start;
     background-image: url("/src/assets/images/bg-sidebar-mobile.svg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     color: $colors-white;
     display: flex;
-    width: 100vw;
+    justify-content: center;
+    min-height: 172px;
+    padding-top: $spacing-md;
 
     .progress-steps {
+      display: flex;
+      gap: $spacing-xs;
       list-style-type: none;
+      padding: 0;
     }
 
     .step-number {
@@ -145,7 +150,7 @@ import "../styles/global.scss";
 
   @media (min-width: 48rem) {
     .sidebar {
-      align-items: flex-start;
+      justify-content: flex-start;
       background-image: url("/src/assets/images/bg-sidebar-desktop.svg");
       background-position: center bottom;
       background-repeat: no-repeat;
@@ -155,7 +160,7 @@ import "../styles/global.scss";
       display: flex;
       flex-shrink: 0;
       min-height: 568px;
-      padding: $spacing-lg $spacing-md;
+      padding: $spacing-lg clamp($spacing-sm, 0.8571rem + 2.381vw, $spacing-lg);
 
       .progress-steps {
         display: flex;
@@ -172,24 +177,12 @@ import "../styles/global.scss";
         }
       }
 
-      .step-number {
-        align-items: center;
-        border: 1px solid $colors-white;
-        border-radius: 100vh;
-        display: flex;
-        height: 2rem;
-        justify-content: center;
-        width: 2rem;
-      }
-
-      .step-number,
-      .step-description {
-        @include textpreset4;
-      }
-
       .step-number-text {
-        @include textpreset5;
-        color: $colors-blue-300;
+        display: block;
+      }
+
+      .step-description {
+        display: block;
       }
     }
   }
