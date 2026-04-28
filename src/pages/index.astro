@@ -34,8 +34,8 @@ import "../styles/global.scss";
     <!--
     <button class="btn btn--secondary">Next Step</button>
     <button class="btn">Go Back</button> -->
-    <section class="form-section">
-      <div class="form-section__container">
+    <section class="form-component">
+      <div class="form-component__container">
         <div class="sidebar">
           <ul class="progress-steps">
             <li class="progress-steps__item">
@@ -69,14 +69,17 @@ import "../styles/global.scss";
           </ul>
         </div>
         <div class="form-container">
-          <div class="form-header">
-            <h2 class="form-header__title textpreset2">Personal info</h2>
-            <p class="form-header__text textpreset3">
-              Please provide your name, email address, and phone number.
-            </p>
-          </div>
           <form class="multi-step-form">
-            <section>
+            <header class="form-header">
+              <h2 class="form-header__title textpreset2">Personal info</h2>
+              <p class="form-header__text textpreset3">
+                Please provide your name, email address, and phone number.
+              </p>
+            </header>
+            <section
+              class="form-section"
+              id="one"
+            >
               <p class="form-group">
                 <label for="name">Name</label>
                 <input
@@ -113,6 +116,21 @@ import "../styles/global.scss";
                   required
                 />
               </p>
+            </section>
+            <section
+              class="form-section hidden"
+              id="two"
+            >
+            </section>
+            <section
+              class="form-section hidden"
+              id="three"
+            >
+            </section>
+            <section
+              class="form-section hidden"
+              id="four"
+            >
             </section>
             <footer class="form-footer">
               <button class="btn btn--primary">Next Step</button>
@@ -188,9 +206,6 @@ import "../styles/global.scss";
     background-color: $colors-white;
     border-radius: 10px;
     box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-sm;
     margin: -75px $spacing-xs 0;
     padding: $spacing-md $spacing-sm;
   }
@@ -206,11 +221,9 @@ import "../styles/global.scss";
   }
 
   .multi-step-form {
-    section {
-      display: flex;
-      flex-direction: column;
-      gap: $spacing-xs;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
 
     label {
       @include textpreset5;
@@ -250,6 +263,16 @@ import "../styles/global.scss";
 
     .form-footer {
       align-self: flex-end;
+    }
+  }
+
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    &.hidden {
+      display: none;
     }
   }
 
@@ -302,7 +325,7 @@ import "../styles/global.scss";
       justify-content: center;
     }
 
-    .form-section {
+    .form-component {
       justify-content: center;
       display: flex;
       &__container {
@@ -317,7 +340,6 @@ import "../styles/global.scss";
 
     .form-container {
       background-color: transparent;
-      gap: $spacing-md;
       margin: 0;
       box-shadow: none;
     }
@@ -331,6 +353,7 @@ import "../styles/global.scss";
     .multi-step-form {
       display: flex;
       flex-direction: column;
+      gap: $spacing-md;
       height: stretch;
       section {
         gap: $spacing-sm;
@@ -390,7 +413,10 @@ import "../styles/global.scss";
   }
 
   @media (min-width: 64rem) {
-    .form-section {
+    .multi-step-form {
+      gap: $spacing-lg;
+    }
+    .form-component {
       width: stretch;
       &__container {
         max-width: 940px;
