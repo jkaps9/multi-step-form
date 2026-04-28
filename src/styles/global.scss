@@ -105,12 +105,14 @@ h6 {
   &:hover {
     color: $colors-blue-950;
   }
+
   &--primary {
     background-color: $colors-blue-950;
     color: $colors-white;
     padding: $spacing-xs $spacing-sm;
     &:hover {
       background-color: $colors-blue-700;
+      color: $colors-white;
     }
   }
   &--secondary {
@@ -119,6 +121,7 @@ h6 {
     padding: $spacing-xs $spacing-sm;
     &:hover {
       background-color: $colors-purple-400;
+      color: $colors-white;
     }
   }
 }
