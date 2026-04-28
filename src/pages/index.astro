@@ -37,7 +37,7 @@ import "../styles/global.scss";
     <div class="sidebar">
       <ul class="progress-steps">
         <li class="progress-steps__item">
-          <div class="step-number">1</div>
+          <div class="step-number active">1</div>
           <div class="step-info">
             <p class="step-number-text">Step 1</p>
             <p class="step-description">Your Info</p>
@@ -102,6 +102,12 @@ import "../styles/global.scss";
       height: 2rem;
       justify-content: center;
       width: 2rem;
+
+      &.active {
+        background-color: $colors-blue-200;
+        border-color: transparent;
+        color: $colors-blue-950;
+      }
     }
 
     .step-number,
