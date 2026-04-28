@@ -133,7 +133,18 @@ import "../styles/global.scss";
             >
             </section>
             <footer class="form-footer">
-              <button class="btn btn--primary">Next Step</button>
+              <button
+                class="btn hidden"
+                id="prevBtn"
+              >
+                Go Back
+              </button>
+              <button
+                class="btn btn--primary"
+                id="nextBtn"
+              >
+                Next Step
+              </button>
             </footer>
           </form>
         </div>
@@ -276,6 +287,10 @@ import "../styles/global.scss";
     }
   }
 
+  .btn.hidden {
+    display: none;
+  }
+
   .textpreset1 {
     @include textpreset1;
   }
@@ -372,6 +387,7 @@ import "../styles/global.scss";
         align-items: flex-end;
         display: flex;
         flex: 1;
+        justify-content: space-between;
       }
     }
 

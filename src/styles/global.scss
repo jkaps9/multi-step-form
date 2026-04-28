@@ -92,12 +92,13 @@ h6 {
 
 .btn {
   @include textpreset3medium;
+  background-color: transparent;
   border: none;
   border-radius: 8px;
   color: $colors-grey-500;
   cursor: pointer;
   display: inline-flex;
-  padding: $spacing-xs $spacing-sm;
+  padding: $spacing-xs 0;
   text-align: center;
   text-decoration: none;
 
@@ -107,6 +108,7 @@ h6 {
   &--primary {
     background-color: $colors-blue-950;
     color: $colors-white;
+    padding: $spacing-xs $spacing-sm;
     &:hover {
       background-color: $colors-blue-700;
     }
@@ -114,6 +116,7 @@ h6 {
   &--secondary {
     background-color: $colors-purple-600;
     color: $colors-white;
+    padding: $spacing-xs $spacing-sm;
     &:hover {
       background-color: $colors-purple-400;
     }
