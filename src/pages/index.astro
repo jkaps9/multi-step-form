@@ -34,7 +34,7 @@ import "../styles/global.scss";
     <!--
     <button class="btn btn--secondary">Next Step</button>
     <button class="btn">Go Back</button> -->
-    <section>
+    <section class="form-section">
       <div class="sidebar">
         <ul class="progress-steps">
           <li class="progress-steps__item">
@@ -122,10 +122,12 @@ import "../styles/global.scss";
 
 <style lang="scss">
   body {
+    align-items: center;
     background-color: $colors-blue-50;
     display: flex;
     flex-direction: column;
     font-family: var(--font-ubuntu);
+    min-height: 100vh;
   }
 
   .sidebar {
@@ -289,12 +291,40 @@ import "../styles/global.scss";
   }
 
   @media (min-width: 48rem) {
+    body {
+      justify-content: center;
+    }
+
+    .form-section {
+      background-color: $colors-white;
+      border-radius: 16px;
+      box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      padding: $spacing-xs;
+    }
+
+    .form-container {
+      gap: $spacing-md;
+      margin: 0;
+      box-shadow: none;
+    }
+
+    .multi-step-form {
+      gap: $spacing-sm;
+      height: stretch;
+      .form-footer {
+        align-items: flex-end;
+        display: flex;
+        flex: 1;
+      }
+    }
+
     .sidebar {
       justify-content: flex-start;
       background-image: url("/src/assets/images/bg-sidebar-desktop.svg");
-      background-position: center bottom;
+      background-position: bottom;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       border-radius: 1rem;
       box-sizing: content-box;
       display: flex;
