@@ -169,6 +169,7 @@ import "../styles/global.scss";
                   name="plan-type"
                   type="radio"
                   value="arcade"
+                  checked
                 />
                 <label
                   for="plan-type-1"
@@ -386,6 +387,7 @@ import "../styles/global.scss";
 
     input[type="radio"] {
       appearance: none;
+      display: none;
       margin: 0;
       padding: 0;
     }
@@ -541,7 +543,7 @@ import "../styles/global.scss";
         @include textpreset4regular;
       }
 
-      input {
+      input:not([type="radio"]) {
         @include textpreset3medium;
         min-height: 3rem;
       }
