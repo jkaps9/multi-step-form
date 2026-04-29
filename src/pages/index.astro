@@ -246,6 +246,25 @@ import "../styles/global.scss";
               class="form-section hidden"
               id="three"
             >
+              <div class="form-group checkbox">
+                <label for="add-on-1">
+                  <input
+                    id="add-on-1"
+                    type="checkbox"
+                    name="add-on-online-service"
+                    value="include"
+                  />
+                  <div class="checkbox__content">
+                    <div class="checkbox__text">
+                      <p class="textpreset3medium">Online Service</p>
+                      <p class="textpreset4regular">
+                        Access to multiplayer games
+                      </p>
+                    </div>
+                    <p class="checkbox__price textpreset4regular">+$1/mo</p>
+                  </div>
+                </label>
+              </div>
             </section>
             <section
               class="form-section hidden"
@@ -370,14 +389,18 @@ import "../styles/global.scss";
     gap: $spacing-sm;
     width: stretch;
 
-    p.form-group > label {
+    .form-group:has(input[type="text"]) > label,
+    .form-group:has(input[type="email"]) > label,
+    .form-group:has(input[type="tel"]) > label {
       @include textpreset5;
       color: $colors-blue-950;
       display: block;
       margin-bottom: $spacing-xxs;
     }
 
-    input:not([type="radio"]) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
       @include textpreset4medium;
       border: 1px solid $colors-purple-200;
       border-radius: 4px;
@@ -526,6 +549,50 @@ import "../styles/global.scss";
       }
     }
 
+    .checkbox {
+      accent-color: $colors-purple-600;
+      label {
+        align-items: center;
+        border: 1px solid $colors-purple-200;
+        border-radius: 8px;
+        display: flex;
+        gap: $spacing-sm;
+        padding: $spacing-xs $spacing-sm;
+        &:hover {
+          border-color: $colors-purple-400;
+          cursor: pointer;
+        }
+      }
+
+      &:has(input[type="checkbox"]:checked) {
+        label {
+          background: $colors-blue-50;
+          border-color: $colors-purple-600;
+        }
+      }
+
+      input[type="checkbox"] {
+        min-height: 20px;
+        min-width: 20px;
+      }
+      &__content {
+        align-items: center;
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+      }
+      &__text {
+        .textpreset4regular {
+          color: $colors-grey-500;
+          margin-top: $spacing-xxs;
+        }
+      }
+
+      &__price {
+        color: $colors-purple-600;
+      }
+    }
+
     .form-group:has(input:user-invalid),
     .form-group:has(textarea:user-invalid) {
       input,
@@ -573,6 +640,10 @@ import "../styles/global.scss";
 
   .textpreset3 {
     @include textpreset3;
+  }
+
+  .textpreset3medium {
+    @include textpreset3medium;
   }
 
   .textpreset4 {
@@ -647,7 +718,9 @@ import "../styles/global.scss";
         gap: $spacing-sm;
       }
 
-      p.form-group > label {
+      .form-group:has(input[type="text"]) > label,
+      .form-group:has(input[type="email"]) > label,
+      .form-group:has(input[type="tel"]) > label {
         @include textpreset4regular;
       }
 

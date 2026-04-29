@@ -101,3 +101,7 @@ toggleSwitch.addEventListener("change", (e) => {
     updatePrices("monthly");
   }
 });
+
+// TODO: remove for prod
+currentStep = 2;
+changeSections();
