@@ -185,6 +185,7 @@ import "../styles/global.scss";
                     <p class="plan__title">Arcade</p>
                     <p class="plan__price">$9/mo</p>
                   </div>
+                  <p class="annual-freebie textpreset5 hidden">2 months free</p>
                 </label>
 
                 <input
@@ -207,6 +208,7 @@ import "../styles/global.scss";
                     <p class="plan__title">Advanced</p>
                     <p class="plan__price">$12/mo</p>
                   </div>
+                  <p class="annual-freebie textpreset5 hidden">2 months free</p>
                 </label>
                 <input
                   id="plan-type-3"
@@ -228,6 +230,7 @@ import "../styles/global.scss";
                     <p class="plan__title">Pro</p>
                     <p class="plan__price">$15/mo</p>
                   </div>
+                  <p class="annual-freebie textpreset5 hidden">2 months free</p>
                 </label>
               </fieldset>
               <div class="form-group toggle-group">
@@ -427,6 +430,14 @@ import "../styles/global.scss";
 
       &:hover {
         border-color: $colors-purple-400;
+      }
+
+      .annual-freebie {
+        display: block;
+        margin-left: auto;
+        &.hidden {
+          display: none;
+        }
       }
     }
 
@@ -702,8 +713,16 @@ import "../styles/global.scss";
           align-items: flex-start;
           flex-direction: column;
           flex: 1;
+          gap: 0;
           justify-content: space-between;
           min-height: 10rem;
+          .plan__text {
+            margin-top: auto;
+          }
+          .annual-freebie {
+            margin: 0;
+            margin-top: $spacing-xxs;
+          }
         }
       }
     }
