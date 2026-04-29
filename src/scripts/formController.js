@@ -113,10 +113,30 @@ function updatePrices() {
   });
 }
 
+function checkStep() {
+  if (currentStep === 0) {
+    if (nameInput.value.trim() === "") {
+      return false;
+    }
+
+    if (emailInput.value.trim() === "") {
+      return false;
+    }
+
+    if (phoneInput.value.trim() === "") {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 nextButton.addEventListener("click", () => {
   // TODO: check form validation first
-  currentStep++;
-  changeSections();
+  if (checkStep()) {
+    currentStep++;
+    changeSections();
+  }
 });
 
 prevButton.addEventListener("click", () => {
@@ -136,19 +156,16 @@ toggleSwitch.addEventListener("change", (e) => {
 
 nameInput.addEventListener("change", (e) => {
   summaryData.name = e.target.value;
-  console.log(summaryData);
 });
 
 emailInput.addEventListener("change", (e) => {
   summaryData.email = e.target.value;
-  console.log(summaryData);
 });
 
 phoneInput.addEventListener("change", (e) => {
   summaryData.phone = e.target.value;
-  console.log(summaryData);
 });
 
 // TODO: remove for prod
-currentStep = 1;
+currentStep = 0;
 changeSections();
