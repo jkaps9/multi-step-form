@@ -1,6 +1,7 @@
 const nextButton = document.querySelector("#nextBtn");
 const prevButton = document.querySelector("#prevBtn");
 const confirmButton = document.querySelector("#confirmBtn");
+
 const sectionList = document.querySelectorAll(".form-section");
 const headerList = document.querySelectorAll(".form-header");
 const stepNumberList = document.querySelectorAll(
@@ -10,6 +11,10 @@ const toggleSwitch = document.querySelector(".switch > input");
 const planPrices = document.querySelectorAll(".plan__price");
 const annualFreebies = document.querySelectorAll(".annual-freebie");
 const addOnPriceList = document.querySelectorAll(".checkbox__price");
+
+const nameInput = document.querySelector("input#name");
+const emailInput = document.querySelector("input#email");
+const phoneInput = document.querySelector("input#phone");
 
 let currentStep = 0;
 const steps = ["one", "two", "three", "four"];
@@ -24,6 +29,17 @@ const prices = {
 const addOnPrices = {
   monthly: ["+$1/mo", "+$2/mo", "+$2/mo"],
   yearly: ["+$10/yr", "+$20/yr", "+$20/yr"],
+};
+
+let summaryData = {
+  name: "",
+  email: "",
+  phone: "",
+  plan: "",
+  planPrice: "",
+  addOn1: false,
+  addOn2: false,
+  addOn3: false,
 };
 
 function addClassToListExceptOne(elementList, exception, className) {
@@ -118,6 +134,21 @@ toggleSwitch.addEventListener("change", (e) => {
   }
 });
 
+nameInput.addEventListener("change", (e) => {
+  summaryData.name = e.target.value;
+  console.log(summaryData);
+});
+
+emailInput.addEventListener("change", (e) => {
+  summaryData.email = e.target.value;
+  console.log(summaryData);
+});
+
+phoneInput.addEventListener("change", (e) => {
+  summaryData.phone = e.target.value;
+  console.log(summaryData);
+});
+
 // TODO: remove for prod
-currentStep = 2;
+currentStep = 1;
 changeSections();
