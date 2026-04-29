@@ -35,8 +35,8 @@ let summaryData = {
   name: "",
   email: "",
   phone: "",
-  plan: "",
-  planPrice: "",
+  planTerm: "monthly",
+  plan: "arcade",
   addOn1: false,
   addOn2: false,
   addOn3: false,
@@ -114,21 +114,39 @@ function updatePrices() {
 }
 
 function checkStep() {
+  let isValid = true;
   if (currentStep === 0) {
     if (nameInput.value.trim() === "") {
-      return false;
+      showError(nameInput, "Name is required");
+      isValid = false;
     }
 
     if (emailInput.value.trim() === "") {
-      return false;
+      showError(emailInput, "Email is required");
+      isValid = false;
     }
 
     if (phoneInput.value.trim() === "") {
-      return false;
+      showError(phoneInput, "Phone is required");
+      isValid = false;
     }
   }
 
-  return true;
+  return isValid;
+}
+
+function showError(input, message) {
+  const formControl = input.parentElement;
+  const errorSpan = formControl.querySelector(".error-message");
+  errorSpan.classList.add("active");
+  errorSpan.textContent = message;
+}
+
+function clearError(input) {
+  const formControl = input.parentElement;
+  const errorSpan = formControl.querySelector(".error-message");
+  errorSpan.classList.remove("active");
+  errorSpan.textContent = "";
 }
 
 nextButton.addEventListener("click", () => {
@@ -147,25 +165,71 @@ prevButton.addEventListener("click", () => {
 toggleSwitch.addEventListener("change", (e) => {
   if (e.target.checked) {
     currentPlan = "yearly";
+    summaryData.planTerm = "yearly";
     updatePrices();
   } else {
     currentPlan = "monthly";
+    summaryData.planTerm = "monthly";
     updatePrices();
   }
 });
 
 nameInput.addEventListener("change", (e) => {
   summaryData.name = e.target.value;
+  if (nameInput.value.trim() !== "") {
+    clearError(nameInput);
+  } else {
+    showError(nameInput, "Name is required");
+  }
 });
 
 emailInput.addEventListener("change", (e) => {
   summaryData.email = e.target.value;
+  if (emailInput.value.trim() !== "") {
+    clearError(emailInput);
+  } else {
+    showError(emailInput, "Email is required");
+  }
 });
 
 phoneInput.addEventListener("change", (e) => {
   summaryData.phone = e.target.value;
+  if (phoneInput.value.trim() !== "") {
+    clearError(phoneInput);
+  } else {
+    showError(phoneInput, "Phone is required");
+  }
+});
+
+const planTypeInputs = document.querySelectorAll('[id^="plan-type"]');
+planTypeInputs.forEach((e, index) => {
+  e.addEventListener("input", () => {
+    summaryData.plan = e.value;
+    const priceValues =
+      currentPlan === "yearly" ? prices.yearly : prices.monthly;
+    planPrices.forEach((planPrice, index) => {
+      planPrice.textContent = priceValues[index];
+    });
+    summaryData.planPrice = priceValues[index];
+    console.log(summaryData);
+  });
+});
+
+document.querySelector("#add-on-1").addEventListener("input", (e) => {
+  summaryData.addOn1 = e.target.checked;
+  console.log(summaryData);
+});
+
+document.querySelector("#add-on-2").addEventListener("input", (e) => {
+  summaryData.addOn2 = e.target.checked;
+  console.log(summaryData);
+});
+
+document.querySelector("#add-on-3").addEventListener("input", (e) => {
+  summaryData.addOn3 = e.target.checked;
+  console.log(summaryData);
 });
 
 // TODO: remove for prod
-currentStep = 0;
+currentStep = 2;
 changeSections();

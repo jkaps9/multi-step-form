@@ -128,11 +128,11 @@ import "../styles/global.scss";
                   type="text"
                   id="name"
                   name="fullname"
-                  oninput="this.setCustomValidity('')"
                   placeholder="e.g. Stephen King"
                   autocomplete="name"
                   required
                 />
+                <span class="error-message textpreset4"></span>
               </p>
               <p class="form-group">
                 <label for="email">Email Address</label>
@@ -140,11 +140,11 @@ import "../styles/global.scss";
                   type="email"
                   id="email"
                   name="email"
-                  oninput="this.setCustomValidity('')"
                   placeholder="e.g. stephenking@lorem.com"
                   autocomplete="email"
                   required
                 />
+                <span class="error-message textpreset4"></span>
               </p>
               <p class="form-group">
                 <label for="phone">Phone Number</label>
@@ -152,11 +152,11 @@ import "../styles/global.scss";
                   type="tel"
                   id="phone"
                   name="phone"
-                  oninput="this.setCustomValidity('')"
                   placeholder="e.g. +1 234 567 890"
                   autocomplete="tel"
                   required
                 />
+                <span class="error-message textpreset4"></span>
               </p>
             </section>
             <section
@@ -175,16 +175,16 @@ import "../styles/global.scss";
                   for="plan-type-1"
                   class="radio-label"
                 >
-                  <div class="plan__icon">
+                  <span class="plan__icon">
                     <img
                       src="/src/assets/images/icon-arcade.svg"
                       alt="icon for the arcade plan"
                     />
-                  </div>
-                  <div class="plan__text">
+                  </span>
+                  <span class="plan__text">
                     <p class="plan__title">Arcade</p>
                     <p class="plan__price">$9/mo</p>
-                  </div>
+                  </span>
                   <p class="annual-freebie textpreset5 hidden">2 months free</p>
                 </label>
 
@@ -192,44 +192,44 @@ import "../styles/global.scss";
                   id="plan-type-2"
                   name="plan-type"
                   type="radio"
-                  value="arcade"
+                  value="advanced"
                 />
                 <label
                   for="plan-type-2"
                   class="radio-label"
                 >
-                  <div class="plan__icon">
+                  <span class="plan__icon">
                     <img
                       src="/src/assets/images/icon-advanced.svg"
                       alt="icon for the advanced plan"
                     />
-                  </div>
-                  <div class="plan__text">
+                  </span>
+                  <span class="plan__text">
                     <p class="plan__title">Advanced</p>
                     <p class="plan__price">$12/mo</p>
-                  </div>
+                  </span>
                   <p class="annual-freebie textpreset5 hidden">2 months free</p>
                 </label>
                 <input
                   id="plan-type-3"
                   name="plan-type"
                   type="radio"
-                  value="arcade"
+                  value="pro"
                 />
                 <label
                   for="plan-type-3"
                   class="radio-label"
                 >
-                  <div class="plan__icon">
+                  <span class="plan__icon">
                     <img
                       src="/src/assets/images/icon-pro.svg"
                       alt="icon for the pro plan"
                     />
-                  </div>
-                  <div class="plan__text">
+                  </span>
+                  <span class="plan__text">
                     <p class="plan__title">Pro</p>
                     <p class="plan__price">$15/mo</p>
-                  </div>
+                  </span>
                   <p class="annual-freebie textpreset5 hidden">2 months free</p>
                 </label>
               </fieldset>
@@ -629,10 +629,8 @@ import "../styles/global.scss";
       }
     }
 
-    .form-group:has(input:user-invalid),
-    .form-group:has(textarea:user-invalid) {
-      input,
-      textarea {
+    .form-group:has(.error-message.active) {
+      input {
         border-color: $colors-red-500;
       }
     }
@@ -645,6 +643,21 @@ import "../styles/global.scss";
 
       #nextBtn {
         margin-left: auto;
+      }
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .error-message {
+      display: none;
+      &.active {
+        color: $colors-red-500;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
       }
     }
   }
