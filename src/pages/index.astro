@@ -230,6 +230,12 @@ import "../styles/global.scss";
                   </div>
                 </label>
               </fieldset>
+              <div class="form-group">
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
             </section>
             <section
               class="form-section hidden"
@@ -357,7 +363,7 @@ import "../styles/global.scss";
     flex-direction: column;
     gap: $spacing-sm;
 
-    label {
+    p.form-group > label {
       @include textpreset5;
       color: $colors-blue-950;
       display: block;
@@ -423,6 +429,51 @@ import "../styles/global.scss";
     fieldset > input[type="radio"]:checked + label {
       background: $colors-blue-50;
       border-color: $colors-purple-600;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 38px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      border-radius: 10px;
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $colors-blue-950;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    .slider:before {
+      border-radius: 10px;
+      position: absolute;
+      content: "";
+      height: 12px;
+      width: 12px;
+      left: 4px;
+      bottom: 4px;
+      background-color: $colors-white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(16px);
+      -ms-transform: translateX(16px);
+      transform: translateX(16px);
     }
 
     .form-group:has(input:user-invalid),
@@ -539,7 +590,7 @@ import "../styles/global.scss";
         gap: $spacing-sm;
       }
 
-      label {
+      p.form-group > label {
         @include textpreset4regular;
       }
 
