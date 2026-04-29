@@ -165,13 +165,13 @@ import "../styles/global.scss";
             >
               <fieldset class="form-group">
                 <input
-                  id="plan-1"
-                  name="plan-1"
+                  id="plan-type-1"
+                  name="plan-type"
                   type="radio"
                   value="arcade"
                 />
                 <label
-                  for="plan-1"
+                  for="plan-type-1"
                   class="radio-label"
                 >
                   <div class="plan__icon">
@@ -187,13 +187,13 @@ import "../styles/global.scss";
                 </label>
 
                 <input
-                  id="plan-2"
-                  name="plan-2"
+                  id="plan-type-2"
+                  name="plan-type"
                   type="radio"
                   value="arcade"
                 />
                 <label
-                  for="plan-2"
+                  for="plan-type-2"
                   class="radio-label"
                 >
                   <div class="plan__icon">
@@ -208,13 +208,13 @@ import "../styles/global.scss";
                   </div>
                 </label>
                 <input
-                  id="plan-3"
-                  name="plan-3"
+                  id="plan-type-3"
+                  name="plan-type"
                   type="radio"
                   value="arcade"
                 />
                 <label
-                  for="plan-3"
+                  for="plan-type-3"
                   class="radio-label"
                 >
                   <div class="plan__icon">
@@ -403,6 +403,7 @@ import "../styles/global.scss";
       align-items: center;
       border: 1px solid $colors-purple-200;
       border-radius: 8px;
+      cursor: pointer;
       display: flex;
       gap: $spacing-xs;
       margin: 0;
@@ -411,6 +412,15 @@ import "../styles/global.scss";
         @include textpreset4regular;
         color: $colors-grey-500;
       }
+
+      &:hover {
+        border-color: $colors-purple-400;
+      }
+    }
+
+    fieldset > input[type="radio"]:checked + label {
+      background: $colors-blue-50;
+      border-color: $colors-purple-600;
     }
 
     .form-group:has(input:user-invalid),
