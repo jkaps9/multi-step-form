@@ -230,11 +230,13 @@ import "../styles/global.scss";
                   </div>
                 </label>
               </fieldset>
-              <div class="form-group">
+              <div class="form-group toggle-group">
+                <p class="left-label">Monthly</p>
                 <label class="switch">
                   <input type="checkbox" />
                   <span class="slider"></span>
                 </label>
+                <p class="right-label">Yearly</p>
               </div>
             </section>
             <section
@@ -470,10 +472,45 @@ import "../styles/global.scss";
       transition: 0.4s;
     }
 
-    input:checked + .slider:before {
+    input[type="checkbox"]:checked + .slider:before {
       -webkit-transform: translateX(16px);
       -ms-transform: translateX(16px);
       transform: translateX(16px);
+    }
+
+    .toggle-group {
+      align-items: center;
+      background: $colors-blue-50;
+      border-radius: 8px;
+      display: flex;
+      gap: $spacing-sm;
+      justify-content: center;
+      min-height: 3rem;
+      width: stretch;
+
+      .left-label,
+      .right-label {
+        @include textpreset4medium;
+        transition: color 0.3s 0.1s;
+      }
+
+      &:has(input[type="checkbox"]:checked) {
+        .left-label {
+          color: $colors-grey-500;
+        }
+        .right-label {
+          color: $colors-blue-950;
+        }
+      }
+
+      &:not(:has(input[type="checkbox"]:checked)) {
+        .left-label {
+          color: $colors-blue-950;
+        }
+        .right-label {
+          color: $colors-grey-500;
+        }
+      }
     }
 
     .form-group:has(input:user-invalid),
@@ -500,6 +537,10 @@ import "../styles/global.scss";
     display: flex;
     flex-direction: column;
     gap: $spacing-xs;
+
+    &#two {
+      gap: $spacing-sm;
+    }
   }
 
   .form-header.hidden,
@@ -647,6 +688,19 @@ import "../styles/global.scss";
   @media (min-width: 64rem) {
     .multi-step-form {
       gap: $spacing-lg;
+      fieldset {
+        align-items: stretch;
+        flex-direction: row;
+        gap: $spacing-xs;
+        justify-content: space-between;
+        & > label {
+          align-items: flex-start;
+          flex-direction: column;
+          flex: 1;
+          justify-content: space-between;
+          min-height: 10rem;
+        }
+      }
     }
     .form-component {
       width: stretch;
