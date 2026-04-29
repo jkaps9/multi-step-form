@@ -750,9 +750,6 @@ import "../styles/global.scss";
       flex-direction: column;
       gap: $spacing-md;
       height: stretch;
-      section {
-        gap: $spacing-sm;
-      }
 
       .form-group:has(input[type="text"]) > label,
       .form-group:has(input[type="email"]) > label,
@@ -807,6 +804,14 @@ import "../styles/global.scss";
       .step-description {
         display: block;
       }
+    }
+
+    .form-section {
+      gap: $spacing-sm;
+    }
+
+    .form-section#three {
+      gap: $spacing-xs;
     }
   }
 
