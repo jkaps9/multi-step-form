@@ -174,7 +174,16 @@ import "../styles/global.scss";
                   for="plan-1"
                   class="radio-label"
                 >
-                  Arcade
+                  <div class="plan__icon">
+                    <img
+                      src="/src/assets/images/icon-arcade.svg"
+                      alt="icon for the arcade plan"
+                    />
+                  </div>
+                  <div class="plan__text">
+                    <p class="plan__title">Arcade</p>
+                    <p class="plan__price">$9/mo</p>
+                  </div>
                 </label>
 
                 <input
@@ -187,7 +196,16 @@ import "../styles/global.scss";
                   for="plan-2"
                   class="radio-label"
                 >
-                  Advanced
+                  <div class="plan__icon">
+                    <img
+                      src="/src/assets/images/icon-advanced.svg"
+                      alt="icon for the advanced plan"
+                    />
+                  </div>
+                  <div class="plan__text">
+                    <p class="plan__title">Advanced</p>
+                    <p class="plan__price">$12/mo</p>
+                  </div>
                 </label>
                 <input
                   id="plan-3"
@@ -199,7 +217,16 @@ import "../styles/global.scss";
                   for="plan-3"
                   class="radio-label"
                 >
-                  Pro
+                  <div class="plan__icon">
+                    <img
+                      src="/src/assets/images/icon-pro.svg"
+                      alt="icon for the pro plan"
+                    />
+                  </div>
+                  <div class="plan__text">
+                    <p class="plan__title">Pro</p>
+                    <p class="plan__price">$15/mo</p>
+                  </div>
                 </label>
               </fieldset>
             </section>
@@ -336,7 +363,7 @@ import "../styles/global.scss";
       margin-bottom: $spacing-xxs;
     }
 
-    input {
+    input:not([type="radio"]) {
       @include textpreset4medium;
       border: 1px solid $colors-purple-200;
       border-radius: 4px;
@@ -354,6 +381,35 @@ import "../styles/global.scss";
 
       &:hover {
         border-color: $colors-purple-400;
+      }
+    }
+
+    input[type="radio"] {
+      appearance: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    fieldset {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xxs;
+      padding: 0;
+    }
+
+    fieldset > label {
+      @include textpreset3medium;
+      align-items: center;
+      border: 1px solid $colors-purple-200;
+      border-radius: 8px;
+      display: flex;
+      gap: $spacing-xs;
+      margin: 0;
+      padding: $spacing-xs;
+      .plan__price {
+        @include textpreset4regular;
+        color: $colors-grey-500;
       }
     }
 
