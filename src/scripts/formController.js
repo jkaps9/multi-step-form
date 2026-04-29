@@ -9,13 +9,21 @@ const stepNumberList = document.querySelectorAll(
 const toggleSwitch = document.querySelector(".switch > input");
 const planPrices = document.querySelectorAll(".plan__price");
 const annualFreebies = document.querySelectorAll(".annual-freebie");
+const addOnPriceList = document.querySelectorAll(".checkbox__price");
 
 let currentStep = 0;
 const steps = ["one", "two", "three", "four"];
 
+let currentPlan = "monthly";
+
 const prices = {
   monthly: ["$9/mo", "$12/mo", "$15/mo"],
   yearly: ["$90/yr", "$120/yr", "$150/yr"],
+};
+
+const addOnPrices = {
+  monthly: ["+$1/mo", "+$2/mo", "+$2/mo"],
+  yearly: ["+$10/yr", "+$20/yr", "+$20/yr"],
 };
 
 function addClassToListExceptOne(elementList, exception, className) {
@@ -68,18 +76,24 @@ function changeSections() {
   );
 }
 
-function updatePrices(key) {
-  const priceValues = key === "yearly" ? prices.yearly : prices.monthly;
+function updatePrices() {
+  const priceValues = currentPlan === "yearly" ? prices.yearly : prices.monthly;
   planPrices.forEach((planPrice, index) => {
     planPrice.textContent = priceValues[index];
   });
 
   annualFreebies.forEach((e) => {
-    if (key === "yearly") {
+    if (currentPlan === "yearly") {
       e.classList.remove("hidden");
     } else {
       e.classList.add("hidden");
     }
+  });
+
+  const addOnPriceValues =
+    currentPlan === "yearly" ? addOnPrices.yearly : addOnPrices.monthly;
+  addOnPriceList.forEach((addOnPrice, index) => {
+    addOnPrice.textContent = addOnPriceValues[index];
   });
 }
 
@@ -96,9 +110,11 @@ prevButton.addEventListener("click", () => {
 
 toggleSwitch.addEventListener("change", (e) => {
   if (e.target.checked) {
-    updatePrices("yearly");
+    currentPlan = "yearly";
+    updatePrices();
   } else {
-    updatePrices("monthly");
+    currentPlan = "monthly";
+    updatePrices();
   }
 });
 
