@@ -313,3 +313,8 @@ form?.addEventListener("submit", (e) => {
   const formFooter = form.querySelector("footer");
   formFooter.style = "display: none;";
 });
+
+document.querySelector("#changePlanBtn").addEventListener("click", () => {
+  currentStep = 1;
+  changeSections();
+});
