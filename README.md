@@ -1,43 +1,52 @@
-# Astro Starter Kit: Minimal
+# Frontend Mentor - Multi-step form solution
 
-```sh
-npm create astro@latest -- --template minimal
-```
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Table of contents
 
-## 🚀 Project Structure
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Overview
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### The challenge
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Users should be able to:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- Complete each step of the sequence
+- Go back to a previous step to update their selections
+- See a summary of their selections on the final step and confirm their order
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- Receive form validation messages if:
+  - A field has been missed
+  - The email address is not formatted correctly
+  - A step is submitted, but no selection has been made
 
-Any static assets, like images, can be placed in the `public/` directory.
+### Screenshot
 
-## 🧞 Commands
+<img src="./screenshot.png" alt="screenshot" width="85%" style="padding-left: 2vw;"/>
 
-All commands are run from the root of the project, from a terminal:
+### Links
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Solution URL: [https://github.com/jkaps9/multi-step-form](https://github.com/jkaps9/multi-step-form)
+- Live Site URL: [https://spaceventures.netlify.app/](https://spaceventures.netlify.app/)
 
-## 👀 Want to learn more?
+## My process
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [Astro](https://astro.build/) - Static Site Generator
+
+## Author
+
+- Frontend Mentor - [@jkaps9](https://www.frontendmentor.io/profile/jkaps9)
