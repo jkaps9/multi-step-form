@@ -42,6 +42,8 @@ let summaryData = {
   addOn3: false,
 };
 
+const form = document.querySelector("form.multi-step-form");
+
 function addClassToListExceptOne(elementList, exception, className) {
   elementList.forEach((e) => {
     e.classList.add(className);
@@ -300,4 +302,14 @@ document.querySelector("#add-on-2").addEventListener("input", (e) => {
 document.querySelector("#add-on-3").addEventListener("input", (e) => {
   summaryData.addOn3 = e.target.checked;
   console.log(summaryData);
+});
+
+form?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const successMessage = document.querySelector("#success");
+  addClassToListExceptOne(headerList, successMessage, "hidden");
+  addClassToListExceptOne(sectionList, successMessage, "hidden");
+
+  const formFooter = form.querySelector("footer");
+  formFooter.style = "display: none;";
 });
