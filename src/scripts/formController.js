@@ -19,7 +19,7 @@ const phoneInput = document.querySelector("input#phone");
 let currentStep = 0;
 const steps = ["one", "two", "three", "four"];
 
-let currentPlan = "monthly";
+let currentPlan = "Monthly";
 
 const prices = {
   monthly: ["$9/mo", "$12/mo", "$15/mo"],
@@ -35,8 +35,8 @@ let summaryData = {
   name: "",
   email: "",
   phone: "",
-  planTerm: "monthly",
-  plan: "arcade",
+  planTerm: "Monthly",
+  plan: "Arcade",
   addOn1: false,
   addOn2: false,
   addOn3: false,
@@ -90,16 +90,17 @@ function changeSections() {
     ),
     "active",
   );
+  updateSummarySection();
 }
 
 function updatePrices() {
-  const priceValues = currentPlan === "yearly" ? prices.yearly : prices.monthly;
+  const priceValues = currentPlan === "Yearly" ? prices.yearly : prices.monthly;
   planPrices.forEach((planPrice, index) => {
     planPrice.textContent = priceValues[index];
   });
 
   annualFreebies.forEach((e) => {
-    if (currentPlan === "yearly") {
+    if (currentPlan === "Yearly") {
       e.classList.remove("hidden");
     } else {
       e.classList.add("hidden");
@@ -107,7 +108,7 @@ function updatePrices() {
   });
 
   const addOnPriceValues =
-    currentPlan === "yearly" ? addOnPrices.yearly : addOnPrices.monthly;
+    currentPlan === "Yearly" ? addOnPrices.yearly : addOnPrices.monthly;
   addOnPriceList.forEach((addOnPrice, index) => {
     addOnPrice.textContent = addOnPriceValues[index];
   });
@@ -149,6 +150,77 @@ function clearError(input) {
   errorSpan.textContent = "";
 }
 
+function updateSummarySection() {
+  document.querySelector("#summaryPlan").textContent =
+    `${summaryData.plan} (${summaryData.planTerm})`;
+  const priceValues = currentPlan === "Yearly" ? prices.yearly : prices.monthly;
+  const planPrice =
+    summaryData.plan === "Arcade"
+      ? priceValues[0]
+      : summaryData.plan === "Advanced"
+        ? priceValues[1]
+        : priceValues[2];
+  document.querySelector("#summaryPlanPrice").textContent = `${planPrice}`;
+
+  if (!summaryData.addOn1 && !summaryData.addOn2 && !summaryData.addOn3) {
+    document.querySelector(".divider").classList.add("hidden");
+  } else {
+    document.querySelector(".divider").classList.remove("hidden");
+  }
+
+  const addOnPriceValues =
+    currentPlan === "Yearly" ? addOnPrices.yearly : addOnPrices.monthly;
+
+  if (!summaryData.addOn1) {
+    document.querySelector("#summary-add-on-1").classList.add("hidden");
+  } else {
+    const addOnDiv = document.querySelector("#summary-add-on-1");
+    addOnDiv.classList.remove("hidden");
+    addOnDiv.querySelector("p + p").textContent = addOnPriceValues[0];
+  }
+
+  if (!summaryData.addOn2) {
+    document.querySelector("#summary-add-on-2").classList.add("hidden");
+  } else {
+    const addOnDiv = document.querySelector("#summary-add-on-2");
+    addOnDiv.classList.remove("hidden");
+    addOnDiv.querySelector("p + p").textContent = addOnPriceValues[1];
+  }
+
+  if (!summaryData.addOn3) {
+    document.querySelector("#summary-add-on-3").classList.add("hidden");
+  } else {
+    const addOnDiv = document.querySelector("#summary-add-on-3");
+    addOnDiv.classList.remove("hidden");
+    addOnDiv.querySelector("p + p").textContent = addOnPriceValues[2];
+  }
+
+  // planPrice + addOn1 + addOn2 + addOn3
+  const addOn1 = summaryData.addOn1
+    ? getNumberFromString(addOnPriceValues[0])
+    : 0;
+  const addOn2 = summaryData.addOn2
+    ? getNumberFromString(addOnPriceValues[1])
+    : 0;
+  const addOn3 = summaryData.addOn3
+    ? getNumberFromString(addOnPriceValues[2])
+    : 0;
+  const total = getNumberFromString(planPrice) + addOn1 + addOn2 + addOn3;
+
+  document.querySelector("#total > .total-amount").textContent =
+    `+$${total}/${currentPlan === "Monthly" ? "mo" : "yr"}`;
+}
+
+function getNumberFromString(str) {
+  let matches = str.match(/(\d+)/);
+  if (matches) {
+    console.log(matches[0]);
+    return Number(matches[0]);
+  } else {
+    return 0;
+  }
+}
+
 nextButton.addEventListener("click", () => {
   // TODO: check form validation first
   if (checkStep()) {
@@ -164,12 +236,12 @@ prevButton.addEventListener("click", () => {
 
 toggleSwitch.addEventListener("change", (e) => {
   if (e.target.checked) {
-    currentPlan = "yearly";
-    summaryData.planTerm = "yearly";
+    currentPlan = "Yearly";
+    summaryData.planTerm = "Yearly";
     updatePrices();
   } else {
-    currentPlan = "monthly";
-    summaryData.planTerm = "monthly";
+    currentPlan = "Monthly";
+    summaryData.planTerm = "Monthly";
     updatePrices();
   }
 });
@@ -206,7 +278,7 @@ planTypeInputs.forEach((e, index) => {
   e.addEventListener("input", () => {
     summaryData.plan = e.value;
     const priceValues =
-      currentPlan === "yearly" ? prices.yearly : prices.monthly;
+      currentPlan === "Yearly" ? prices.yearly : prices.monthly;
     planPrices.forEach((planPrice, index) => {
       planPrice.textContent = priceValues[index];
     });
@@ -231,5 +303,5 @@ document.querySelector("#add-on-3").addEventListener("input", (e) => {
 });
 
 // TODO: remove for prod
-currentStep = 3;
+currentStep = 0;
 changeSections();
