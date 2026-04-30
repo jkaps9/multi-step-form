@@ -2,6 +2,11 @@
 import { Font } from "astro:assets";
 import { getImage } from "astro:assets";
 import "../styles/global.scss";
+
+import arcadeIcon from "../assets/images/icon-arcade.svg";
+import advancedIcon from "../assets/images/icon-advanced.svg";
+import proIcon from "../assets/images/icon-pro.svg";
+import thankYouIcon from "../assets/images/icon-thank-you.svg";
 ---
 
 <html lang="en">
@@ -171,7 +176,7 @@ import "../styles/global.scss";
                 >
                   <span class="plan__icon">
                     <img
-                      src="/multi-step-form/assets/images/icon-arcade.svg"
+                      src={arcadeIcon.src}
                       alt="icon for the arcade plan"
                     />
                   </span>
@@ -194,7 +199,7 @@ import "../styles/global.scss";
                 >
                   <span class="plan__icon">
                     <img
-                      src="/multi-step-form/assets/images/icon-advanced.svg"
+                      src={advancedIcon.src}
                       alt="icon for the advanced plan"
                     />
                   </span>
@@ -216,7 +221,7 @@ import "../styles/global.scss";
                 >
                   <span class="plan__icon">
                     <img
-                      src="/multi-step-form/assets/images/icon-pro.svg"
+                      src={proIcon.src}
                       alt="icon for the pro plan"
                     />
                   </span>
@@ -361,7 +366,7 @@ import "../styles/global.scss";
             >
               <div class="icon">
                 <img
-                  src="/multi-step-form/assets/images/icon-thank-you.svg"
+                  src={thankYouIcon.src}
                   alt="checkmark"
                 />
               </div>
