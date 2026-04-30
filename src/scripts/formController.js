@@ -231,5 +231,5 @@ document.querySelector("#add-on-3").addEventListener("input", (e) => {
 });
 
 // TODO: remove for prod
-currentStep = 2;
+currentStep = 3;
 changeSections();

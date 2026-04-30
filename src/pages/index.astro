@@ -306,6 +306,60 @@ import "../styles/global.scss";
               class="form-section hidden"
               id="four"
             >
+              <div class="plan-details">
+                <div class="form-group">
+                  <div class="plan">
+                    <p
+                      id="summaryPlan"
+                      class="textpreset4medium blue-text"
+                    >
+                      Arcade (Monthly)
+                    </p>
+                    <button
+                      type="button"
+                      class="btn textpreset4regular"
+                      id="changePlanBtn"
+                    >
+                      Change
+                    </button>
+                  </div>
+                  <p
+                    id="planPrice"
+                    class="textpreset4"
+                  >
+                    $9/mo
+                  </p>
+                </div>
+                <div class="divider"></div>
+                <div
+                  class="form-group textpreset4regular"
+                  id="add-on-1"
+                >
+                  <p class="grey-text">Online service</p>
+                  <p class="blue-text">+$1/mo</p>
+                </div>
+                <div
+                  class="form-group textpreset4regular"
+                  id="add-on-2"
+                >
+                  <p class="grey-text">Customizable profile</p>
+                  <p class="blue-text">+$2/mo</p>
+                </div>
+                <div
+                  class="form-group textpreset4regular"
+                  id="add-on-3"
+                >
+                  <p class="grey-text">Online Service</p>
+                  <p class="blue-text">+$1/mo</p>
+                </div>
+              </div>
+              <div
+                class="form-group textpreset4regular"
+                id="total"
+              >
+                <p class="grey-text">Total (per month)</p>
+                <p class="total-amount purple-text">+$12/mo</p>
+              </div>
             </section>
             <footer class="form-footer">
               <button
@@ -333,10 +387,10 @@ import "../styles/global.scss";
           </form>
         </div>
       </div>
+      <script>
+        import "../scripts/formController.js";
+      </script>
     </section>
-    <script>
-      import "../scripts/formController.js";
-    </script>
   </body>
 </html>
 
@@ -671,6 +725,42 @@ import "../styles/global.scss";
     &#two {
       gap: $spacing-sm;
     }
+
+    &#four {
+      .form-group {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .plan-details {
+        background: $colors-blue-50;
+        border-radius: 8px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: $spacing-xs;
+        padding: $spacing-xs;
+      }
+      .divider {
+        height: 1px;
+        background: $colors-grey-500;
+        opacity: 0.2;
+        width: 100%;
+      }
+      .btn {
+        padding: 0;
+      }
+
+      #total {
+        padding: calc($spacing-lg - $spacing-xs) 1rem 0; // total space I want less the row gap
+      }
+      .total-amount {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+    }
   }
 
   .form-header.hidden,
@@ -699,7 +789,7 @@ import "../styles/global.scss";
     @include textpreset4;
   }
 
-  .textpreset4meidum {
+  .textpreset4medium {
     @include textpreset4medium;
   }
 
@@ -709,6 +799,18 @@ import "../styles/global.scss";
 
   .textpreset5 {
     @include textpreset5;
+  }
+
+  .blue-text {
+    color: $colors-blue-950;
+  }
+
+  .purple-text {
+    color: $colors-purple-600;
+  }
+
+  .grey-text {
+    color: $colors-grey-500;
   }
 
   @media (min-width: 0rem) and (max-width: 47.975rem) {
