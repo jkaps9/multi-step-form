@@ -119,7 +119,7 @@ import "../styles/global.scss";
               </p>
             </header>
             <section
-              class="form-section hidden"
+              class="form-section"
               id="one"
             >
               <p class="form-group">
@@ -362,22 +362,22 @@ import "../styles/global.scss";
               </div>
             </section>
             <section
-              class="form-section"
+              class="form-section hidden"
               id="success"
             >
               <div class="icon">
                 <img
-                  src="/src/assets//images/icon-checkmark.svg"
+                  src="/src/assets//images/icon-thank-you.svg"
                   alt="checkmark"
                 />
-                <div class="content">
-                  <h2 class="textpreset2">Thank you!</h2>
-                  <p class="textpreset3 grey-text">
-                    Thanks for confirming your subscription! We hope you have
-                    fun using our platform. If you ever need support, please
-                    feel free to email us at support@loremgaming.com.
-                  </p>
-                </div>
+              </div>
+              <div class="content">
+                <h2 class="textpreset2">Thank you!</h2>
+                <p class="textpreset3 grey-text">
+                  Thanks for confirming your subscription! We hope you have fun
+                  using our platform. If you ever need support, please feel free
+                  to email us at support@loremgaming.com.
+                </p>
               </div>
             </section>
             <footer class="form-footer">
@@ -477,7 +477,11 @@ import "../styles/global.scss";
     background-color: $colors-white;
     border-radius: 10px;
     box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    place-content: center;
     margin: -75px $spacing-xs 0;
+    min-height: 400px;
     padding: $spacing-md $spacing-sm;
     width: stretch;
   }
@@ -785,6 +789,25 @@ import "../styles/global.scss";
       #summary-add-on-3.hidden,
       .divider.hidden {
         display: none;
+      }
+    }
+
+    &#success {
+      align-items: center;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+      &.hidden {
+        display: none;
+      }
+      h2 {
+        margin-bottom: $spacing-xxs;
+      }
+
+      .icon {
+        height: 56px;
+        width: 56px;
       }
     }
   }
