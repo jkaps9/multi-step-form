@@ -35,7 +35,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/jkaps9/multi-step-form](https://github.com/jkaps9/multi-step-form)
-- Live Site URL: [https://spaceventures.netlify.app/](https://spaceventures.netlify.app/)
+- Live Site URL: [https://jkaps9.github.io/multi-step-form/](https://jkaps9.github.io/multi-step-form/)
 
 ## My process
 
