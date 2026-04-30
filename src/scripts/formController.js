@@ -301,7 +301,3 @@ document.querySelector("#add-on-3").addEventListener("input", (e) => {
   summaryData.addOn3 = e.target.checked;
   console.log(summaryData);
 });
-
-// TODO: remove for prod
-currentStep = 0;
-changeSections();
