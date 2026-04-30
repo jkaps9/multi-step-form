@@ -797,17 +797,18 @@ import "../styles/global.scss";
       text-align: center;
       display: flex;
       flex-direction: column;
-      gap: $spacing-md;
+      gap: clamp($spacing-md, 1.3239rem + 0.7512vw, $spacing-lg);
+      justify-content: center;
       &.hidden {
         display: none;
       }
       h2 {
-        margin-bottom: $spacing-xxs;
+        margin-bottom: clamp($spacing-xxs, 0.3239rem + 0.7512vw, $spacing-xs);
       }
 
       .icon {
-        height: 56px;
-        width: 56px;
+        height: clamp(3.5rem, 2.9718rem + 2.2535vw, 5rem);
+        width: clamp(3.5rem, 2.9718rem + 2.2535vw, 5rem);
       }
     }
   }
@@ -910,10 +911,9 @@ import "../styles/global.scss";
     }
 
     .multi-step-form {
-      display: flex;
-      flex-direction: column;
       gap: $spacing-md;
       height: stretch;
+      place-content: center;
 
       .form-group:has(input[type="text"]) > label,
       .form-group:has(input[type="email"]) > label,
@@ -976,6 +976,12 @@ import "../styles/global.scss";
 
     .form-section#three {
       gap: $spacing-xs;
+    }
+
+    .form-section#success {
+      h2 {
+        @include textpreset1;
+      }
     }
   }
 
